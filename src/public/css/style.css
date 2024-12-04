@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #212529;
+    height: 100vh;
+    display: flex;
+    color: #f8f9fa;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #f8f9fa;
+}
+
+a {
+    color: #f8f9fa;
+    text-decoration: none;
+}
+
+.nav-list {
+    background-color: #14171a;
+    list-style-type: none;
+    padding: 6px;
+}
+
+.nav-list li {
+    margin-top: 6px;
+    margin-right: 5px;
+    border-radius: 4px;
+    padding: 12px;
+
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.nav-list a {
+    text-decoration: none;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    border-radius: 4px;
+    background-color: #14171a
+}
+
+.navbar .logo {
+    padding: 12px;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.logo a{
+    text-decoration: none;
+    font-size: 26px;
+}
+
+.content {
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 100%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.row-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.row-container .small-card {
+    height: 50px;
+}
+
+.row-container .card-s {
+    align-items: center;
+}
+
+.card-c {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+    border-radius: 6px;
+
+    background-color: #14171a;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.card-s {
+    display: flex;
+    justify-content: center;
+
+    padding: 10px;
+    border-radius: 6px;
+
+    background-color: #14171a;
+    
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.small-card {
+    height: 100px;
+}
+
+.large-card {
+    grid-column: 1 / 4;;
+    /*height: 600px;*/
+}
+
+.text {
+    color: #f8f9fa;
+    font-size: 36px;
+}
+
+.button {
+    padding: 15px 30px;
+    
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    color: #f8f9fa;
+    background-color: rgb(38, 179, 245);
+    background-image: linear-gradient(to right, #289de0, #8BC34A);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.button:hover {
+    box-shadow: 4px 4px 11px rgba(0, 0, 0, 0.3);
+}
