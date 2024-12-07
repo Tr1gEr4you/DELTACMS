@@ -9,7 +9,20 @@
 <body>
     <%- include('../modules/navbar') %>
     <div class="content">
-        <div class="card-c small-card"><%=user.id %> <%=user.username %> <%=user.age %></div>
+        <div class="grid-container">
+            <div class="card-c large-card">
+                <%=user.login %>
+            </div>
+            <div class="card-c small-card">
+                <%=user.id %>
+            </div>
+            <div class="card-c small-card">
+                <%=user.password %>
+            </div>
+            <div class="card-c small-card">
+                <%=user.flags %>
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -3,9 +3,12 @@ const bodyParser = require('body-parser');
 const mainRouter = require('./routs/mainRouts')
 const userRouter = require('./routs/userRouts')
 const adminRouter = require('./routs/adminRouts')
-const {port} = require('./settings');
+const mysql = require('mysql2')
+const db = require('./database')
+const {port} = require('./settings')
 
 const app = express();
+
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');

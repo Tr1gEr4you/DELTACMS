@@ -1,8 +1,9 @@
 const userModel = require('../models/user')
 
 module.exports = {
-    getAll: function (req, res) {
-        return res.render('users', {users: userModel.getAll()})
+    getAll: async function (req, res) {
+        const users = await userModel.getAll();
+        return res.render('users', {users: users})
     },
     getById: function (req, res) {
         const user = userModel.getById(req.params.id);
@@ -13,12 +14,7 @@ module.exports = {
             res.sendStatus(404);
         }
     },
-    removeById: function (req, res) {
-        const user = userModel.removeById(req.params.id);
-        if (user) {
-            res.send("Успешно");
-        } else {
-            res.sendStatus(404);
-        }
+    removeById: async function (req, res) {
+        await userModel.removeById(req.params.id);
     }
 }

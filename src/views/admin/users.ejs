@@ -13,21 +13,31 @@
     <div class="content">
         <div class="grid-container">
             <div class="card-c small-card">
-                <div class="text"><%=users.length%></div>
+                <div class="text"><%=userCount%></div>
+            </div>
+            <div class="card-c small-card">
+                <div class="text"><%=adminCount%></div>
             </div>
             <div class="card-c small-card">
                 <div class="text">0</div>
             </div>
-            <div class="card-c small-card">
-                <div class="text">0</div>
-            </div>
-            <button class="button">
+
+            <button class="button gradient-g">
                 Add user
             </button>
+
+            <button class="button gradient-y">
+                Update user
+            </button>
+
+            <button class="button gradient-r">
+                Delete user
+            </button>
+
             <div class="card-s large-card">
                 <div class="row-container">
                     <% users.forEach(function(user) { %>
-                        <a href="user/<%= user.id %>"><div class="card-s small-card" style="background-color: #212529;"><%=user.id%> <%=user.username%> <%=user.age%></div></a>
+                        <a href="user/<%= user.id %>"><div class="card-s small-card" style="background-color: #212529;"><%=user.id%> <%=user.login%> <%=user.password%> <%=user.flags%></div></a>
                     <% }); %>
                 </div>
             </div>
