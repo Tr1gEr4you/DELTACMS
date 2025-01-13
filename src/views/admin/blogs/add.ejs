@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELTA CMS | BLOGS</title>
+    <link rel="stylesheet" href="/css/admin-style.css">
+</head>
+<body>
+    <%- include('../../modules/navbar') %>
+
+    <div class="content">
+        <form method="POST" action="/admin/blogs/create"> 
+            <div class="grid-container">
+                <div class="card-c small-card">
+                    <textarea name="title" id="title" rows="6" cols="65"></textarea>
+                </div>
+                <div class="card-c small-card">
+                    <textarea id="shortDescription" name="shortDescription" rows="6" cols="65"></textarea>
+                </div>
+                <div class="card-c small-card">
+                    <textarea id="description" name="description" rows="6" cols="65"></textarea>
+                </div>
+                <div class="card-c small-card">
+                    <input type="text" name="image" id="image">
+                </div>
+                <input type="submit" value="Добавить"> 
+            </div>
+        </form>
+    </div>
+</body>
+</html>

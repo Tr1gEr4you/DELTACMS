@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Jura:400,600&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <%-include('modules/navbar-home')%>
+    <div class="content">
+        <h1 style="margin-left: 32px;">Delta Blogs</h1>
+        <div class="grid-container-blog"> 
+            <%-include('modules/navbar-blog')%>
+                <div class="grid-containter">
+                    <% blogs.forEach(function(blog) { %>
+                    <div class="card-image-blog" style="background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.15)), url(css/images/backrooms.jpg);">
+                        <div class="text" style="width: 400px;">
+                            <h3><%= blog.title %></h3>
+                            <h4><%= blog.shortDescription %></h4>
+                            <div class="button">
+                                <a href="/blogs/<%=blog.id%>">Открыть блог</a>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+                </div>    
+            </div>
+        </div>
+    </div>
+</body>
+</html>

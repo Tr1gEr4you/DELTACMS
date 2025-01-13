@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Jura:400,600&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+    </head>
+<body>
+    <%- include('modules/navbar-home') %>
+    <div class="content">
+        <div class="nav-server" style="margin-bottom: 20px;">
+            <div class="button">
+                <a href="/servers/cs2">CS2</a>
+            </div>
+            <div class="button">
+                <a href="/servers/minecraft">MINECRAFT</a>
+            </div>
+            <div class="button">
+                <a href="/servers">UNFD</a>
+            </div>
+        </div>
+        <div class="grid-container">
+            
+            <%servers.forEach(function(server) {%>
+                <div class="card">
+                    <div class="card-image" style="background: url(css/images/<%=server.map%>.jpg); background-size: cover; background-position: center;"></div>
+                    <%=server.numplayers%>/<%=server.maxplayers%> - <%=server.map%>
+                    <%=server.name%>
+                </div>
+            <%})%>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -60,5 +60,27 @@ module.exports = {
         } finally {
             if (connection) connection.release();
         }
+    },
+    create: async function (login, password, flags) {
+        const connection = await getConnection();
+        try {
+            await connection.query('INSERT INTO users (login, password, flags) VALUES (?, ?, ?)', [login, password, flags])
+        } catch (err) {
+            console.log(err)
+        } finally {
+            if (connection) connection.release();
+        }
+    },
+    findByLogin: async function (login, password) {
+        const connection = await getConnection();
+        try {
+            const [rows, fields] = await connection.query('SELECT * FROM users WHERE login')
+            const user = rows;
+            return user;
+        } catch (err) {
+            console.log(err) 
+        } finally {
+            if (connection) connection.release();
+        }
     }
 }

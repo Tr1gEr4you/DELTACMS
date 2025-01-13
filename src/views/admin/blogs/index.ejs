@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DELTA CMS | BLOGS</title>
+        <link rel="stylesheet" href="/css/admin-style.css">
+    </head>
+<body>
+
+    <%- include('../../modules/navbar') %>
+
+    <div class="content">
+        <div class="grid-container">
+            <div class="card-c small-card">
+                <div class="text"><%=blogCount%></div>
+            </div>
+            <div class="card-c small-card">
+                <div class="text">0</div>
+            </div>
+            <div class="card-c small-card">
+                <div class="text">0</div>
+            </div>
+
+            <a href="blogs/add" class="button gradient-g">
+                Add blog
+            </a>
+
+            <a href="blogs/update" class="button gradient-y">
+                Update blog
+            </a>
+
+            <a href="blogs/delete" class="button gradient-r">
+                Delete blog
+            </a>
+
+            <div class="card-s large-card">
+                <div class="row-container">
+                    <% blogs.forEach(function(blog) { %>
+                        <a href="/blogs/<%= blog.id %>"><div class="card-s small-card" style="background-color: #212529;"><%=blog.id%>. <%=blog.title%></div></a>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

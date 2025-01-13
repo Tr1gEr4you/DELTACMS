@@ -1,15 +1,11 @@
-const allowedPages = ['index', 'jaja']
+const serverModel = require('../models/server-source')
 
 module.exports = {
     showMainPage: function (req, res) {
         return res.render('index');   
     },
-    /*showPage: function (req, res) {
-        const page = req.params.page;
-        if (allowedPages.includes(page)) {
-            return res.render(page);
-        } else {
-            res.status(404).render('error')
-        }
-    }*/
+    showMonitoringPage: async function (req, res) {
+        const servers = await serverModel.getAll();
+        return res.render('servers', {servers: servers})
+    },
 }
