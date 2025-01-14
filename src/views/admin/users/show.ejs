@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DELTA CMS | USER</title>
+        <link rel="stylesheet" href="/css/admin-style.css">
+    </head>
+<body>
+    <%- include('../../modules/navbar') %>
+    <div class="content">
+        <div class="grid-container">
+            <div class="card-c large-card">
+                <%=user.login %>
+            </div>
+            <div class="card-c small-card">
+                <%=user.id %>
+            </div>
+            <div class="card-c small-card">
+                <%=user.password %>
+            </div>
+            <div class="card-c small-card">
+                <%=user.flags %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
