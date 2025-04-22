@@ -5,43 +5,43 @@
 
     <main class="admin-main">
       <div class="admin-container">
-        <h1>Добавить пользователя</h1>
+        <h1>Редактировать пользователя</h1>
 
-        <form method="POST" action="/admin/users/">
+        <form method="POST" action="/admin/users/<%= user.id %>?_method=PUT">
           <div class="grid x2">
             <div class="form-group">
               <label for="login">Логин</label>
-              <input type="text" id="login" name="login" placeholder="Введите логин">
+              <input type="text" id="login" name="login" value="<%= user.login %>">
             </div>
 
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="Введите email">
+              <input type="email" id="email" name="email" value="<%= user.email %>">
             </div>
 
             <div class="form-group">
-              <label for="password">Пароль</label>
-              <input type="password" id="password" name="password" placeholder="Введите пароль">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" value="">
             </div>
 
             <div class="form-group">
               <label for="steamid">Steam ID</label>
-              <input type="text" id="steamid" name="steamid" placeholder="STEAM_0:1:12345678">
+              <input type="text" id="steamid" name="steamid" value="<%= user.steamid %>">
             </div>
 
             <div class="form-group">
               <label for="role_id">Роль</label>
-              <input type="text" id="role_id" name="role_id" placeholder="ID роли">
+              <input type="text" id="role_id" name="role_id" value="<%= user.role_id %>">
             </div>
 
             <div class="form-group">
               <label for="balance">Баланс</label>
-              <input type="number" id="balance" name="balance" placeholder="0">
+              <input type="number" id="balance" name="balance" value="<%= user.balance %>">
             </div>
           </div>
 
           <div class="form-group">
-            <button type="submit" class="btn">Добавить</button>
+            <button type="submit" class="btn">Сохранить</button>
           </div>
         </form>
       </div>

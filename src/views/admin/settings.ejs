@@ -1,0 +1,42 @@
+<%- include('./partials/head-admin') %>
+
+<div class="admin-wrapper">
+    <%- include('./partials/sidebar-admin') %>
+
+    <main class="admin-main">
+      <div class="admin-container">
+        <h1>Настройки</h1>
+
+
+        <form method="POST" action="/admin/settings?_method=PUT">
+
+          <div class="form-group">
+            <label for="site_name">Название сайта</label>
+            <input type="text" name="site_name" id="site_name" value="<%= settings.site_name %>">
+          </div>
+
+          <div class="form-group">
+            <label for="theme">Выбор темы оформления</label>
+            <select name="theme" id="theme">
+                <option value="<%=settings.theme%>"><%=settings.theme%></option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="maintenance_mode">Режим обслуживания</label>
+            <select name="maintenance_mode" id="maintenance_mode">
+              <option value="off" <%= settings.maintenance_mode === 'off' ? 'selected' : '' %>>Выключен</option>
+              <option value="on" <%= settings.maintenance_mode === 'on' ? 'selected' : '' %>>Включен</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn">Сохранить</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+
+<%- include('./partials/footer-admin') %>

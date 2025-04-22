@@ -1,0 +1,50 @@
+<%- include('./partials/head-admin') %>
+
+<div class="admin-wrapper">
+    <%- include('./partials/sidebar-admin') %>
+
+    <main class="admin-main">
+      <div class="admin-container">
+        <h1>Добро пожаловать в админ-панель</h1>
+        <div class="card-grid">
+          <div class="card">
+            <h2>Модули</h2>
+            <p>Управление установленными модулями</p>
+            <a href="/admin/modules" class="btn">Перейти</a>
+          </div>
+          <div class="card">
+            <h2>Пользователи</h2>
+            <p>Управление пользователями</p>
+            <a href="/admin/users" class="btn">Перейти</a>
+          </div>
+          <div class="card">
+            <h2>Роли</h2>
+            <p>Управление ролями</p>
+            <a href="/admin/roles" class="btn">Перейти</a>
+          </div>
+          <div class="card">
+            <h2>Страницы</h2>
+            <p>Создание и управление страницами</p>
+            <a href="/admin/pages" class="btn">Перейти</a>
+          </div>
+          <div class="card">
+            <h2>Настройки хедера</h2>
+            <p>Создание и управление кнопками</p>
+            <a href="/admin/header" class="btn">Перейти</a>
+          </div>
+          <div class="card">
+            <h2>Статистика</h2>
+            <p>Посмотреть статистику</p>
+            <a href="/admin/stats" class="btn">Перейти</a>
+          </div>
+          <div class="card">
+            <h2>Настройки</h2>
+            <p>Конфигурация и параметры системы</p>
+            <a href="/admin/settings" class="btn btn-secondary">Настроить</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+<%- include('./partials/footer-admin') %>

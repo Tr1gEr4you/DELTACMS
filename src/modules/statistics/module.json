@@ -1,0 +1,7 @@
+{
+    "name": "statistics",
+    "version": "0.10.1",
+    "route": "/stats",
+    "enabled": true,
+    "isCore": true
+}
