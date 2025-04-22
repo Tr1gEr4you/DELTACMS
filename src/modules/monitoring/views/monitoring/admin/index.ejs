@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELTAENGINE.RU - Панель администратора</title>
+    <link rel="stylesheet" href="/css/admin-style-new.css">
+    <link href='https://fonts.googleapis.com/css?family=Jura:400,600&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <%- include('modules/navbar-admin') %>
+    <div class="container">
+        <%- include('modules/navbar-menu-admin')  %>
+        <div class="content">
+            <h4>Servers</h4>
+            <h2>Servers</h2>
+
+                <div class="button-list">
+                    <a href="server/add">
+                        <div class="button-edit" style="padding: 10px 50px">
+                             Add
+                        </div>
+                    </a>
+                </div>
+
+            <div class="card">
+                <div class="card-info">
+                    <div class="nav-list">
+                        <ul><li><a>ID</a></li></ul>
+                        <ul><li><a>Ip</a></li></ul>
+                        <ul><li><a>Status</a></li></ul>
+                        <ul><li><a>Actions</a></li></ul>
+                    </div>
+                </div>
+                <div class="card-info-user">
+                    <div class="nav-list">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

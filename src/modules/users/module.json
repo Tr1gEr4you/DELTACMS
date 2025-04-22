@@ -1,0 +1,7 @@
+{
+    "name": "users",
+    "version": "0.0.1",
+    "route": "/users",
+    "enabled": true,
+    "isCore": true
+}
