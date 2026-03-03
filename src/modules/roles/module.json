@@ -1,0 +1,7 @@
+{
+    "name": "roles",
+    "version": "0.0.1",
+    "route": "/roles",
+    "enabled": true,
+    "isCore": true
+}

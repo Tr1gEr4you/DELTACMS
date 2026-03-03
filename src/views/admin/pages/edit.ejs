@@ -1,0 +1,61 @@
+<%- include('../partials/head-admin') %>
+
+<script src="https://cdn.tiny.cloud/1/3119rt71dsdp7s618d8bsb1xouz1aevgdmglm5a67i34pg5c/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+  tinymce.init({
+    selector: 'textarea#content',
+    height: 400,
+    menubar: false,
+    plugins: [
+      'advlist autolink lists link image charmap preview anchor',
+      'searchreplace visualblocks code fullscreen',
+      'insertdatetime media table code help wordcount'
+    ],
+    toolbar:
+      'undo redo | formatselect | bold italic backcolor | \
+      alignleft aligncenter alignright alignjustify | \
+      bullist numlist outdent indent | removeformat | help'
+  });
+</script>
+
+<div class="admin-wrapper">
+  <%- include('../partials/sidebar-admin') %>
+
+  <main class="admin-main">
+    <div class="admin-container">
+      <div class="admin-header">
+        <h1>Редактировать: <%= page.title %></h1>
+        <a href="/admin/pages" class="btn btn-secondary">Назад к списку</a>
+      </div>
+
+      <form action="/admin/pages/<%= page.id %>?_method=PUT" method="POST" style="margin-top: 20px;">
+        <div class="form-group">
+          <label for="title">Заголовок</label>
+          <input type="text" id="title" name="title" value="<%= page.title %>" required>
+        </div>
+
+        <div class="form-group">
+          <label for="route">Роут</label>
+          <input type="text" id="route" name="route" value="<%= page.route %>" required>
+        </div>
+
+        <div class="form-group">
+          <label for="content">Контент</label>
+          <textarea id="content" name="content" rows="8" required><%= page.content %></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="status">Статус</label>
+          <select id="status" name="status">
+            <option value="draft" <%= page.status === 'draft' ? 'selected' : '' %>>Черновик</option>
+            <option value="published" <%= page.status === 'published' ? 'selected' : '' %>>Опубликована</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn">Сохранить изменения</button>
+      </form>
+    </div>
+  </main>
+</div>
+
+<%- include('../partials/footer-admin') %>

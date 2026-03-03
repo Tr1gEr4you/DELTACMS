@@ -1,0 +1,10 @@
+{
+    "name": "server_status",
+    "version": "0.0.1",
+    "route": "/servers/status",
+    "enabled": true,
+    "isCore": false,
+    "dependencies": {
+        "gamedig": ""
+    }
+}

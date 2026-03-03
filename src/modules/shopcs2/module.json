@@ -1,0 +1,7 @@
+{
+    "name": "shopcs2",
+    "version": "0.0.1",
+    "route": "/shopcs2",
+    "enabled": true,
+    "isCore": false
+}

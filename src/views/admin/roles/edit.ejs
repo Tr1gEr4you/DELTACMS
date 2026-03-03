@@ -1,0 +1,32 @@
+<%- include('../partials/head-admin') %>
+
+<div class="admin-wrapper">
+  <%- include('../partials/sidebar-admin') %>
+
+  <main class="admin-main">
+    <div class="admin-container">
+      <div class="admin-header">
+        <h1>Редактировать роль</h1>
+      </div>
+
+      <form action="/admin/roles/<%= role.id %>?_method=PUT" method="POST" class="form">
+        <div class="form-group">
+          <label for="name">Название роли</label>
+          <input type="text" id="name" name="name" value="<%= role.name %>" required>
+        </div>
+
+        <div class="form-group">
+          <label for="flags">Флаги</label>
+          <input type="text" id="flags" name="flags" value="<%= role.flags %>" required>
+        </div>
+
+        z - Администратор (Доступ в админ панель)<br>
+        u - Пользователь
+
+        <button type="submit" class="btn">Сохранить изменения</button>
+      </form>
+    </div>
+  </main>
+</div>
+
+<%- include('../partials/footer-admin') %>

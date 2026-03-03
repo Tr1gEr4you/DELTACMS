@@ -1,0 +1,31 @@
+<%- include('../partials/head') %>
+
+<section class="profile-page">
+  <div class="profile-card">
+    <div class="profile-header">
+      <img src="https://ui-avatars.com/api/?name=<%= user.login %>&background=random&size=128" alt="Аватар" class="avatar">
+      <h2><%= user.login %></h2>
+      <p class="role-label">id: <%= user.id %></p>
+    </div>
+
+    <div class="profile-info">
+      <div class="info-item">
+        <span class="label">Роль:</span>
+        <span class="value"><%= user.role_name %></span>
+      </div>
+      <div class="info-item">
+        <span class="label">Флаги:</span>
+        <span class="value"><%= user.role_flags %></span>
+      </div>
+    </div>
+
+    <div class="profile-actions">
+        <a href="/users/settings" class="btn">Настройки</a>
+      </div>
+    <div class="profile-actions">
+      <a href="/auth/logout" class="btn danger">Выйти</a>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

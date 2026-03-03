@@ -1,0 +1,7 @@
+{
+    "name": "servers",
+    "version": "0.0.1",
+    "route": "/servers",
+    "enabled": true,
+    "isCore": false
+}

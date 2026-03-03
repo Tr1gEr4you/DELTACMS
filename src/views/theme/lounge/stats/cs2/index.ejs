@@ -1,0 +1,37 @@
+<%- include('../../partials/head') %>
+
+<h1 class="page-title">Топ пользователей по кредитам</h1>
+
+<% if (!users) { %>
+  <div class="empty-state">
+    <p>⚠️ База данных недоступна. Попробуйте позже.</p>
+  </div>
+<% } else if (users.length === 0) { %>
+  <div class="empty-state">
+    <p>Нет доступных пользователей.</p>
+  </div>
+<% } else { %>
+  <div class="users-list">
+    <% users.forEach(function(user) { %>
+      <div class="user-card">
+        <div class="user-header">
+          <h2 class="user-name"><%= user.name %></h2>
+          <p class="user-steamid">SteamID: <%= user.auth %></p>
+        </div>
+
+        <div class="user-info">
+          <div class="info-item">
+            <span class="label">Кредиты:</span>
+            <span class="value"><%= user.money %></span>
+          </div>
+        </div>
+
+        <div class="user-actions">
+          <a href="/users/<%= user.id %>" class="btn btn-primary">Профиль</a>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+<% } %>
+
+<%- include('../../partials/footer') %>

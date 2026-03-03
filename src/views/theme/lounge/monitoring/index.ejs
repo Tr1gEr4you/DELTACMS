@@ -1,0 +1,43 @@
+<%- include('../partials/head') %>
+
+  <h1 class="page-title">Список серверов</h1>
+  
+  <% if (servers.length === 0) { %>
+    <div class="empty-state">
+      <p>Нет доступных серверов.</p>
+    </div>
+  <% } else { %>
+    <div class="servers-list">
+      <% servers.forEach(function(server) { %>
+        <div class="server-card">
+          <div class="server-header">
+            <h2 class="server-name"><%= server.name %></h2>
+            <p class="server-status <%= server.status === 'Online' ? 'status-online' : 'status-offline' %>">
+              <%= server.status %>
+            </p>
+          </div>
+
+          <div class="server-info">
+            <div class="info-item">
+              <span class="label">IP:</span>
+              <span class="value"><%= server.ip %></span>
+            </div>
+            <div class="info-item">
+              <span class="label">Порт:</span>
+              <span class="value"><%= server.port %></span>
+            </div>
+            <div class="info-item">
+              <span class="label">Игроков:</span>
+              <span class="value"><%= server.player_count %> / <%= server.max_players %></span>
+            </div>
+          </div>
+
+          <div class="server-actions">
+            <a href="/servers/<%= server.id %>" class="btn btn-primary">Подробнее</a>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  <% } %>
+
+<%- include('../partials/footer') %>

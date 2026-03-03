@@ -1,0 +1,10 @@
+{
+    "name": "auth",
+    "version": "0.0.1",
+    "route": "/auth",
+    "enabled": "1",
+    "isCore": "1",
+    "dependencies": {
+        "bcrypt": ""
+    }
+}

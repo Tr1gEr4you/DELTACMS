@@ -1,0 +1,10 @@
+{
+    "name": "rcon",
+    "version": "0.0.1",
+    "route": "/servers/rcon",
+    "enabled": true,
+    "isCore": false,
+    "dependencies": {
+        "rcon": ""
+    }
+}

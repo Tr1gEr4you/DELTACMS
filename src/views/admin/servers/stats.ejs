@@ -1,0 +1,110 @@
+<%- include('../partials/head-admin') %>
+
+<div class="admin-wrapper">
+  <%- include('../partials/sidebar-admin') %>
+
+  <main class="admin-main">
+    <div class="admin-container">
+      <h1>Статистика сервера</h1>
+
+      <!-- Процент онлайн статуса -->
+      <div class="chart-block">
+        <h2>Процент онлайн статуса сервера: <%= onlinePercentage || "0.00" %>%</h2>
+      </div>
+
+      <!-- График среднего онлайна -->
+      <div class="chart-block">
+        <h2>Средний онлайн за последние <%= (days && days.length) || 0 %> дней</h2>
+        <% if (playerCounts && playerCounts.length > 0) { %>
+          <canvas id="averagePlayerChart" width="400" height="200"></canvas>
+        <% } else { %>
+          <p>Нет данных для отображения графика.</p>
+        <% } %>
+      </div>
+
+      <!-- Самая частая карта -->
+      <div class="chart-block">
+        <h2>Статистика по картам</h2>
+        <% if (mapCount && Object.keys(mapCount).length > 0) { %>
+          <canvas id="mapChart" width="300" height="300"></canvas>
+        <% } else { %>
+          <p>Нет данных по картам.</p>
+        <% } %>
+      </div>
+    </div>
+  </main>
+</div>
+
+<%- include('../partials/footer-admin') %>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const days = <%- JSON.stringify(days || []) %>;
+const playerCounts = <%- JSON.stringify(playerCounts || []) %>;
+const mapData = <%- JSON.stringify(mapCount || {}) %>;
+const onlinePercentage = <%- JSON.stringify(onlinePercentage || "0.00") %>;
+
+if (playerCounts.length > 0) {
+  const ctx = document.getElementById('averagePlayerChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: days,
+      datasets: [{
+        label: 'Онлайн игроков',
+        data: playerCounts,
+        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderWidth: 2,
+        fill: true,
+        tension: 0.2
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+
+if (Object.keys(mapData).length > 0) {
+  const mapLabels = Object.keys(mapData);
+  const mapValuesRaw = Object.values(mapData);
+  const totalMapCount = mapValuesRaw.reduce((sum, val) => sum + val, 0) || 1;
+  const mapValuesPercent = mapValuesRaw.map(val => ((val / totalMapCount) * 100).toFixed(1));
+
+  const mapCtx = document.getElementById('mapChart').getContext('2d');
+  new Chart(mapCtx, {
+    type: 'pie',
+    data: {
+      labels: mapLabels.map((label, index) => `${label} (${mapValuesPercent[index]}%)`),
+      datasets: [{
+        data: mapValuesPercent,
+        backgroundColor: mapLabels.map((_, i) => `hsl(${i * 60}, 70%, 60%)`),
+        borderColor: '#fff',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return `${context.label}`;
+            }
+          }
+        }
+      }
+    }
+  });
+}
+</script>

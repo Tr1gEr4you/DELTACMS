@@ -1,0 +1,382 @@
+:root {
+    --font-family: "Jura", sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #101112;
+}
+
+hr {
+    margin-top: 2px;
+    margin-bottom: 1px;
+
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+ul,
+ul li,
+ul li a {
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    color: #fff;
+}
+
+.nav-elements {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav-elements .nav-item{
+    border-radius: 16px;
+}
+
+.nav-item .nav-description {
+    font-family: var(--font-family);
+    font-weight: 300;
+    font-size: 16px;
+    color: #e4e4e4;
+}
+
+.nav-item .nav-button {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 26px;
+    color: #fff;
+}
+
+.wrapper {
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.navbar {
+    width: 200px;
+    height: 100vh;
+    margin-top: 20px;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Выравниваем элементы по вертикали по центру */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 80px; /* Фиксированная высота для header */
+}
+
+.left-side, .right-side {
+    display: flex;
+    align-items: center; /* Выравниваем элементы по вертикали по центру */
+    gap: 10px;
+}
+
+header .button-buy-premium,
+header .button-buy-battlepass {
+    border-radius: 6px;
+    padding: 12px;
+    background: linear-gradient(90deg, #ffbb3c 0%, #F0D3B0 100%);
+    display: flex;
+    align-items: center; /* Выравниваем текст по центру по вертикали */
+    justify-content: center; /* Выравниваем текст по центру по горизонтали */
+    height: 15px; /* Фиксированная высота для кнопок */
+
+    gap: 5px;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+}
+
+.card .button-buy-premium {
+    margin-top: 10px;
+    border-radius: 6px;
+    width: 40%;
+    padding: 8px;
+    background: linear-gradient(90deg, #ffbb3c 0%, #d6530c 100%);
+    display: flex;
+    align-items: center; /* Выравниваем текст по центру по вертикали */
+    justify-content: center; /* Выравниваем текст по центру по горизонтали */
+    height: 20px; /* Фиксированная высота для кнопок */
+
+    gap: 5px;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 17px;
+    color: #000000;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 30px;
+}
+
+.user-avatar,
+.user-avatar-premium {
+    border-radius: 50%; /* Делаем аватар круглым */
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center; /* Выравниваем содержимое по центру */
+    justify-content: center; /* Выравниваем содержимое по центру */
+}
+
+
+.money-stats {
+    display: flex;
+    align-items: center; /* Выравниваем текст по центру по вертикали */
+    justify-content: center; /* Выравниваем текст по центру по горизонтали */
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.user-crystal,
+.user-cred {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.user-avatar-premium {
+    border: 1px solid #ffc70f;
+}
+
+.logo a{
+    display: flex;
+}
+
+.logo .info {
+    width: 120px;
+    margin-left: 10px;
+}
+
+.logo .small-text {
+    font-family: var(--font-family);
+    font-weight: 100;
+    font-size: 9.5px;
+    color: #ffffff;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.logo .medium-text {
+    font-family: var(--font-family);
+    font-weight: 100;
+    font-size: 15px;
+    color: #ffffff;
+    text-align: start;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.logo .large-text {
+    display: inline-block; /* Важно для анимации */
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: start;
+    text-transform: uppercase;
+    white-space: nowrap;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1); /* Нормальный размер */
+    }
+    50% {
+        transform: scale(1.05); /* Увеличение на 10% */
+    }
+    100% {
+        transform: scale(1); /* Возврат к нормальному размеру */
+    }
+}
+
+.server-category-container {
+    display: flex;
+    flex: 1; /* Контейнер занимает всё доступное пространство */
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.server-category-container .card {
+    width: calc(33.33% - 7px); 
+    box-sizing: border-box; /* Учитываем padding в общей ширине */
+    height: auto; /* Высота будет адаптироваться под содержимое */
+    min-height: 200px; /* Минимальная высота карточки */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    gap: 0;
+
+    background-size: cover; /* или contain */
+    background-position: center; /* Центрируем изображение */
+}
+
+.server-category-container .card .title, 
+.server-category-container .promo-card .description  {
+    font-family: var(--font-family);
+    text-align: center;
+    color: #fff;
+}
+
+.server-category-container .card .title,
+.server-category-container .promo-card .title {
+    font-weight: 600;
+    font-size: 32px;
+}
+
+.server-category-container .card .description,
+.server-category-container .promo-card .description {
+    font-weight: 100;
+    font-size: 16px;
+}
+
+.server-category-container .monitoring-hot{
+    border: 1px solid #e73125;
+}
+
+.server-category-container .card hr, 
+.server-category-container .monitoring-hot hr{
+    width: 100px;
+}
+
+.container-2x {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    gap: 20px
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 20px;
+    height: 150px;
+    padding: 20px;
+    background-color: #151515;
+
+}
+
+.promo-card {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #fbc2eb, #fad0c4, #ff9a9e); /* Начальный градиент */
+    background-size: 200% 200%; /* Увеличиваем размер градиента для анимации */
+    animation: gradientAnimation 10s ease infinite; /* Анимация градиента */
+}
+
+/* Анимация для градиента */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%; /* Начальная позиция градиента */
+    }
+    50% {
+        background-position: 100% 50%; /* Промежуточная позиция градиента */
+    }
+    100% {
+        background-position: 0% 50%; /* Возврат к начальной позиции */
+    }
+}
+
+.news {
+    background-image: url("../images/background-card.jpg");
+    flex: 2;
+    max-height: 165px;
+    background-size: cover; /* или contain */
+    background-position: center; /* Центрируем изображение */
+}
+
+.top-player-list {
+    height: 100%;
+    flex: 2;
+}
+
+.card .title {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 32px;
+    color: #ffffff;
+}
+
+.card .description {
+    font-family: var(--font-family);
+    font-weight: 100;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.card-player-stats {
+    border-radius: 14px;
+    padding: 20px;
+    background-color: #1A1A1A;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stats-element {
+    display: flex;
+    flex-direction: column;
+
+    font-family: var(--font-family);
+    font-weight: 100;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.stats-element .user-name {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.stats-element .light {
+    color: #E4E4E4;
+}
+
+.player-rank {
+    display: flex;
+    align-items: center;
+
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 32px;
+    color: #ffffff;
+}

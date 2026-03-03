@@ -1,0 +1,72 @@
+<%- include('./partials/head-admin') %>
+
+<div class="admin-wrapper">
+    <%- include('./partials/sidebar-admin') %>
+
+    <main class="admin-main">
+      <div class="admin-container">
+        <h1>Модули</h1>
+
+        <div class="module-upload-box">
+          <form action="/api/modules/upload" method="POST" enctype="multipart/form-data">
+          <label for="moduleZip" class="upload-label">Выберите .zip модуль</label>
+          <input type="file" name="module" id="moduleZip" accept=".zip" required class="upload-input">
+          <button type="submit" class="btn btn-primary upload-btn">⬆ Загрузить</button>
+          </form>
+        </div>
+        
+        <% if (coreModules.length) { %>
+          <h2 class="module-group-title">Ядро системы</h2>
+          <div class="module-list">
+            <% coreModules.forEach(module => { %>
+              <div class="module-item">
+                <div class="module-info">
+                  <strong><%= module.moduleName %></strong>
+                  <p><%= module.version %></p>
+                  <span class="<%= module.enabled ? 'status-active' : 'status-inactive' %>">
+                    <%= module.enabled ? 'Активен' : 'Отключен' %>
+                  </span>
+                </div>
+                <div class="module-actions">
+                    <a href="/admin<%= module.route %>/settings" class="btn btn-secondary">Настроить</a>
+                    <form action="/api/modules/<%= module.enabled ? 'disabled' : 'enabled' %>/<%= module.id %>?_method=PUT" method="POST">
+                        <input type="hidden" name="_method" value="PUT">
+                        <button type="submit" class="btn btn-danger">
+                          <%= module.enabled ? 'Отключить' : 'Включить' %>
+                        </button>
+                    </form>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+        <% } %>
+
+        <% if (extraModules.length) { %>
+          <h2 class="module-group-title">Дополнительные модули</h2>
+          <div class="module-list">
+            <% extraModules.forEach(module => { %>
+              <div class="module-item">
+                <div class="module-info">
+                  <strong><%= module.moduleName %></strong>
+                  <p><%= module.version %></p>
+                  <span class="<%= module.enabled ? 'status-active' : 'status-inactive' %>">
+                    <%= module.enabled ? 'Активен' : 'Отключен' %>
+                  </span>
+                </div>
+                <div class="module-actions">
+                  <a href="/admin<%= module.route %>/settings" class="btn btn-secondary">Настроить</a>
+                  <form action="/admin/modules/<%= module.enabled ? 'disabled' : 'enabled' %>/<%= module.id %>?_method=PUT" method="POST">
+                    <input type="hidden" name="_method" value="PUT">
+                    <button type="submit" class="btn btn-danger">
+                      <%= module.enabled ? 'Отключить' : 'Включить' %>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+        <% } %>
+      </div>
+    </main>
+  </div>
+<%- include('./partials/footer-admin') %>

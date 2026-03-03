@@ -1,31 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DELTA CMS | USER</title>
-        <link rel="stylesheet" href="/css/admin-style.css">
-    </head>
-<body>
+<%- include('../partials/head-admin') %>
 
-    <%- include('../../modules/navbar') %>
+<div class="admin-wrapper">
+    <%- include('../partials/sidebar-admin') %>
 
-    <div class="content">
-        <form method="POST" action="/admin/users/create"> 
-            <div class="grid-container">
-                <div class="card-c small-card">
-                    <input id="login" name="login"></textarea>
-                </div>
-                <div class="card-c small-card">
-                    <input id="password" name="password"></textarea>
-                </div>
-                <div class="card-c small-card">
-                    <input id="flags" name="flags"></textarea>
-                </div>
-                <input type="submit" value="Добавить"> 
+    <main class="admin-main">
+      <div class="admin-container">
+        <h1>Добавить пользователя</h1>
+
+        <form method="POST" action="/admin/users/">
+          <div class="grid x2">
+            <div class="form-group">
+              <label for="login">Логин</label>
+              <input type="text" id="login" name="login" placeholder="Введите логин">
             </div>
-        </form>
-    </div>
 
-</body>
-</html>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Введите email">
+            </div>
+
+            <div class="form-group">
+              <label for="password">Пароль</label>
+              <input type="password" id="password" name="password" placeholder="Введите пароль">
+            </div>
+
+            <div class="form-group">
+              <label for="steamid">Steam ID</label>
+              <input type="text" id="steamid" name="steamid" placeholder="STEAM_0:1:12345678">
+            </div>
+
+            <div class="form-group">
+              <label for="role_id">Роль</label>
+              <input type="text" id="role_id" name="role_id" placeholder="ID роли">
+            </div>
+
+            <div class="form-group">
+              <label for="balance">Баланс</label>
+              <input type="number" id="balance" name="balance" placeholder="0">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn">Добавить</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+<%- include('../partials/footer-admin') %>

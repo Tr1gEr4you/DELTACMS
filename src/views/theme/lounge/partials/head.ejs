@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title><%= typeof page !== 'undefined' ? page.title : 'DeltaCMS' %></title>
+  <link rel="stylesheet" href="/lounge/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo"><%= settings.site_name %></a>
+
+      <nav class="nav">
+        <% headerButtons.forEach(button => { %>
+          <a href="<%= button.url %>"><%= button.label %></a>
+        <% }) %>
+      </nav>
+
+      <div class="auth-block">
+        <% if (user) { %>
+          <span class="user-greeting"><a href="/users/profile" style="text-decoration: none;">Привет, <%= user.login %></a></span>
+          <a href="/auth/logout" class="btn-header">Выйти</a>
+          <% if (user?.role_flags?.includes("z")) { %>
+            <a href="/admin/dashboard" class="btn-header">Админ Панель</a>
+          <% } %>
+        <% } else { %>
+          <a href="/auth" class="btn-header">Войти</a>
+          <a href="/auth/register" class="btn-header">Зарегистрироваться</a>
+        <% } %>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main container">

@@ -1,0 +1,30 @@
+<%- include('../partials/head-admin') %>
+
+<div class="admin-wrapper">
+  <%- include('../partials/sidebar-admin') %>
+
+  <main class="admin-main">
+    <div class="admin-container">
+      <h1>Отправка RCON-команды: <%= server.ip %></h1>
+
+      <form action="/admin/servers/rcon/<%= server.id %>/" method="POST" class="form">
+
+        <div class="form-group">
+          <label for="command">Команда</label>
+          <input type="text" name="command" id="command" class="form-control" placeholder="Введите RCON-команду" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Отправить</button>
+      </form>
+
+      <% if (response) { %>
+        <div class="response-output">
+          <h3>Ответ сервера:</h3>
+          <pre><%= response %></pre>
+        </div>
+      <% } %>
+    </div>
+  </main>
+</div>
+
+<%- include('../partials/footer-admin') %>

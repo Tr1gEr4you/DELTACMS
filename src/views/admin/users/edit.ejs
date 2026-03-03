@@ -1,0 +1,58 @@
+<%- include('../partials/head-admin') %>
+
+<div class="admin-wrapper">
+    <%- include('../partials/sidebar-admin') %>
+
+    <main class="admin-main">
+      <div class="admin-container">
+        <h1>Редактировать пользователя</h1>
+
+        <form method="POST" action="/admin/users/<%= user.id %>?_method=PUT">
+          <div class="grid x2">
+            <div class="form-group">
+              <label for="login">Логин</label>
+              <input type="text" id="login" name="login" value="<%= user.login %>">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" value="<%= user.email %>">
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" value="">
+            </div>
+
+            <div class="form-group">
+              <label for="steamid">Steam ID</label>
+              <input type="text" id="steamid" name="steamid" value="<%= user.steamid %>">
+            </div>
+
+            <div class="form-group">
+              <label for="role_id">Роль</label>
+              <select name="role_id" id="role_id" class="form-control">
+                <option value="<%= user.role_id %>"><%= user.role_name %> (текущая)</option>
+                <% roles.forEach(role => { %>
+                  <% if (role.id !== user.role_id) { %>
+                    <option value="<%= role.id %>"><%= role.name %></option>
+                  <% } %>
+                <% }) %>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="balance">Баланс</label>
+              <input type="number" id="balance" name="balance" value="<%= user.balance %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn">Сохранить</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+<%- include('../partials/footer-admin') %>
